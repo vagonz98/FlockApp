@@ -1,0 +1,60 @@
+.custom_width {
+    width: 78px !important;
+    height: 30px !important;
+}
+
+.custom_pad {
+	padding: 10px 30px 30px 10px;
+}
+
+.custom_button {
+    background-color: rgb(157, 195, 230); /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    height: 40;
+
+}
+
+.image_size {
+	max-width:50%;
+	max-height:50%;
+}
+
+.panel-color {
+	background-color: rgb(157, 195, 230);
+	border-color: #646261;
+}
+
+.custom-textbar{
+	height: 30;
+	padding: 10px 20px 10px 20px;
+}
+
+/*.description-bar{
+	width:;
+}*/
+
+html, body {
+    margin: 0;
+    padding: 0
+}
+
+#contentWrapper {
+    width: 300px;
+    margin: 0 auto;
+    background: #ccc;
+    height: 100px
+}
+#headerBar {
+    height: 40px;
+    background: blue
+}
+#footerBar {
+    height: 40px;
+    background: red
+}

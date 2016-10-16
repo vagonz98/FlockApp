@@ -1,12 +1,15 @@
-from flask import Flask
-from flask.ext.login import LoginManager, UserMixin, login_required, login_user\
+import flask
 from firebase import firebase
 import md5
+
+
+# EB looks for an 'application' callable by default.
+application = flask.Flask(__name__)
 
 logged_in = [False]
 SECRET = 'Zu1J0i9vls6l1ygDWc3GuL9XsiffXCASSoqAGrXV'
 firebase2 = firebase.FirebaseApplication('https://flock-f7e57.firebaseio.com/', authentication=None)
-m = md5.new()
+
 
 def firebase_get(my_base, query_string):
     authentication = firebase.FirebaseAuthentication(SECRET, 'irrelevant')
@@ -16,6 +19,7 @@ def firebase_get(my_base, query_string):
 
 def is_authorized(email, password):
     users = firebase_get(firebase2, '/Users')
+    m = md5.new()
     m.update(email)
     if m.hexdigest() in users:
         user_info = users[m.hexdigest()]
@@ -26,20 +30,26 @@ def is_authorized(email, password):
 
 @application.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'GET':
-        return render_template('static/login.html')
-    
-    data = request.form
-    email = data[u'username']
-    password = data[u'password']
 
-    if is_authorized(email, password):
-        global logged_in
-        logged_in.pop()
-        logged_in.append(True)
-        return redirect(url_for(''))
+    if flask.request.method == 'GET':
+        return flask.render_template('login_page.html')
+    if flask.request.method == 'POST':
+        print flask.request.form
+        email = flask.request.form['username']
+        password = flask.request.form['password']
+        
+        if is_authorized(email, password):
+            global logged_in
+            logged_in.pop()
+            logged_in.append(True)
+            return '/test'
+                
+        return '/login'
 
-    return redirect(url_for('login'))
+
+@application.route('/test', methods=['GET'])
+def testrender():
+    return flask.render_template('homepage.html')
 
 
 
@@ -64,8 +74,6 @@ instructions = '''
 home_link = '<p><a href="/">Back</a></p>\n'
 footer_text = '</body>\n</html>'
 
-# EB looks for an 'application' callable by default.
-application = Flask(__name__)
 
 
 # add a rule for the index page.

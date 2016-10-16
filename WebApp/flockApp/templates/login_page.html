@@ -1,16 +1,16 @@
 <html>
 <head>
 	<title>Flask Login</title>
-	<link rel="stylesheet" href="styles/main.css">
-	<link rel="stylesheet" href="bootstrap/3.3.6/css/bootstrap.min.css">
-	<link rel="stylesheet" href="bootstrap/3.3.6/css/bootstrap-theme.min.css"> 
-
+	<link rel="stylesheet" href="{{ url_for('static',filename='styles/main.css')}}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/3.3.6/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/3.3.6/css/bootstrap-theme.min.css')}}"> 
+	<script type="text/javascript" src="{{ url_for('static', filename='scripts/loginScript.js')}}"></script>
 </head>
 <body>
 
 <div class="container panel-color">
     <div class="text-center"> 
-    	<img src="pictures/flocklogo.png" class="image_size" alt="logo"> 
+    	<img src="{{ url_for('static', filename='pictures/flocklogo.png')}}" class="image_size" alt="logo"> 
     </div>
 </div>
 
@@ -30,7 +30,7 @@
 	</div>
 
 	<div class = "col-sm-12 text-center custom_pad">
-  		<button class = "btn btn-small btn-info custom_width">Login</button>
+  		<button id="login" class="btn btn-small btn-info custom_width">Login</button>
   	</div>
 
   	<div class = "text-center">
