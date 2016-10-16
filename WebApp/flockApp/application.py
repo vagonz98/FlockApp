@@ -1,6 +1,6 @@
 import flask
 from firebase import firebase
-import md5
+import hashlib
 
 
 # EB looks for an 'application' callable by default.
@@ -19,7 +19,7 @@ def firebase_get(my_base, query_string):
 
 def is_authorized(email, password):
     users = firebase_get(firebase2, '/Users')
-    m = md5.new()
+    m = hashlib.md5()
     m.update(email)
     if m.hexdigest() in users:
         user_info = users[m.hexdigest()]
@@ -34,7 +34,6 @@ def login():
     if flask.request.method == 'GET':
         return flask.render_template('login_page.html')
     if flask.request.method == 'POST':
-        print flask.request.form
         email = flask.request.form['username']
         password = flask.request.form['password']
         
