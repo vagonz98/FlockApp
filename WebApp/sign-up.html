@@ -1,0 +1,68 @@
+<html>
+<head>
+	<title>Flask Login</title>
+	<link rel="stylesheet" href="styles/main.css">
+	<link rel="stylesheet" href="bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bootstrap/3.3.6/css/bootstrap-theme.min.css"> 
+
+</head>
+<body>
+
+<div class="container panel-color">
+    <div class="text-center"> 
+    	<img src="pictures/flocklogo.png" class="image_size" alt="logo"> 
+    </div>
+</div>
+
+<p>
+	<div class="container custom_pad">
+
+		  <div class="input-group custom_pad  custom-textbar text-center description-bar">
+		  	<span class="input-group-addon text-center" id="basic-addon1">Username:</span>
+		  	<input type="text" class="form-control text-center" placeholder="username@email.com" aria-describedby="basic-addon1">
+		  </div>
+
+      <div class="input-group custom_pad  custom-textbar text-center description-bar">
+        <span class="input-group-addon text-center" id="basic-addon1">School:</span>
+        <input type="text" class="form-control text-center" placeholder="password" aria-describedby="basic-addon1">
+      </div>
+
+		  <div class="input-group custom_pad  custom-textbar text-center description-bar">
+	  		<span class="input-group-addon text-center" id="basic-addon1">Password:</span>
+	  		<input type="text" class="form-control text-center" placeholder="password" aria-describedby="basic-addon1">
+	  	</div>
+
+      <div class="input-group custom_pad  custom-textbar text-center description-bar">
+        <span class="input-group-addon text-center" id="basic-addon1">Validate Password:</span>
+        <input type="text" class="form-control text-center" placeholder="username@email.com" aria-describedby="basic-addon1">
+      </div>
+
+	</div>
+
+	<div class = "col-sm-12 text-center custom_pad">
+  		<button type = "button" class = "custom_button">Create Account</button>
+  </div>
+  	
+
+<p>
+
+<script src="https://www.gstatic.com/firebasejs/3.5.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBng5q7hqHLWBW2_N9By5xY0Rwsok12yQs",
+    authDomain: "flock-f7e57.firebaseapp.com",
+    databaseURL: "https://flock-f7e57.firebaseio.com",
+    storageBucket: "flock-f7e57.appspot.com",
+    messagingSenderId: "752805820323"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<!-- SCRIPTS -->
+	<script src="bootstrap/3.3.6/js/jquery-2.2.4.js"> </script>
+	<script src="bootstrap/3.3.6/js/bootstrap.min.js"> </script>
+<!-- END SCRIPTS -->
+
+
+</body></html>
